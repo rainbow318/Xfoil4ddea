@@ -8,7 +8,9 @@
 
 ## DDEA 机翼应用流程
 #### Step1.数据采集
-采集用于DDEA优化的数据集（目标值为翼型数据所对应的升阻比），数据集形式：$(\theta_1^1,\theta_2^1,...\theta_{10}^1, C_{L/D}^1 ),...,(\theta_1^n,\theta_2^n,...\theta_{10}^n, Fitness^n )$
+
+采集用于DDEA优化的数据集（目标值为翼型数据所对应的升阻比），数据集形式：
+$$(\theta_1^1,\theta_2^1,...\theta_{10}^1, C_{L/D}^1 ),...,(\theta_1^n,\theta_2^n,...\theta_{10}^n, C_{L/D}^n )$$
 
 具体步骤：
 
@@ -65,7 +67,7 @@ $$\theta_1^{best},\theta_2^{best},...\theta_{10}^{best}$$
 如果不想手动打开Xfoil并输入命令，评估机翼也可以通过CallXfoil.py中的evaluate_foil函数直接计算。
 
 #### Step4. 获取机翼曲面各处的压力
-手动打开XFoil软件（也可以不用手动操作软件而是用代码，可类似地参考CallXfoil.py的实现），导入myfoil.dat，获取该翼型该翼型曲面各处的 $C_P$ 压力。直接使用python画图得到压力系数图x- $C_P$ 。获取 $x-C_p$ 的命令：
+手动打开XFoil软件（也可以不用手动操作软件而是用代码，可类似地参考CallXfoil.py的实现），导入myfoil.dat，获取该翼型该翼型曲面各处的 $C_P$ 压力。直接使用python画图得到压力系数图 $x-C_p$ 。获取 $x-C_p$ 的命令：
 ```
 > load myfoil.dat  # 导入机翼横截面几何形状的数据
 > norm
@@ -77,7 +79,7 @@ $$\theta_1^{best},\theta_2^{best},...\theta_{10}^{best}$$
 > cpwr ans.txt     # x-Cp数据输出到ans.txt文件中，随后使用python解析ans.txt文件并画图
 ```
 
-x-Cp数据输出到ans.txt文件中，一个ans.txt的例子为：
+ $x-C_p$ 数据输出到ans.txt文件中，一个ans.txt的例子为：
 ```
  Alfa =   4.00000 Re =  5000000.000 Xflap,Yflap =     0.000000    0.000000
 #    x        y        Cp  
