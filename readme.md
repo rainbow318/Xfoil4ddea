@@ -2,13 +2,17 @@
 ./callXfoil.py
 * HicksHenne函数功能：根据输入的$\theta$计算其对应的机翼几何形状
 * evaluate_foil函数功能：调用Xfoil软件，根据输入的机翼几何形状评估该机翼的升阻比
-* main函数体：实现数据集采样，生成的数据集存在./data文件夹中。（实际上该过程应该封装成一个函数的，但现在懒得改了就先写在mian函数体里）
+* main函数体：实现数据集采样，生成的数据集存在./data文件夹中。（实际上该过程应该封装成一个函数的，但现在懒得改了就先写在main函数体里）
+
+./FoilCal/Xfoil文件夹内含有xfoil.exe 可直接运行
 
 ## DDEA 机翼应用流程
 #### Step1.数据采集
-采集用于DDEA优化的数据集（目标值为翼型数据所对应的升阻比），数据集形式：$$(\theta_1^1,\theta_2^1,...\theta_{10}^1, C_{L/D}^1 ),...,(\theta_1^n,\theta_2^n,...\theta_{10}^n, Fitness^n )$$
+采集用于DDEA优化的数据集（目标值为翼型数据所对应的升阻比），数据集形式：$(\theta_1^1,\theta_2^1,...\theta_{10}^1, C_{L/D}^1 ),...,(\theta_1^n,\theta_2^n,...\theta_{10}^n, Fitness^n )$
+
 具体步骤：
-1）lhs采样得到n组$\theta$
+1）lhs采样得到n组 $\theta$
+
 2）对每个$\theta$，基于HicksHenne函数计算其对应的机翼几何形状，输出几何形状文件.dat（Xfoil好像只能读取.dat类型的文件）。一个.dat文件的例子：
 ```
 1.0 0.00126
